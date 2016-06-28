@@ -10,15 +10,17 @@ namespace DXlib_CS.src.Comp.DrawComp.Object {
     class Cell : DrawableComponent {
 
         private ImageObject onBlock;
-        private ImageObject offBLock;
+        private ImageObject offBlock;
 
-        public double cellImageSizeX {
+        private bool isBlock;
+
+        public double CellImageSizeX {
             get {
                 return this.onBlock.SizeX;
             }
         }
 
-        public double cellImageSizeY {
+        public double CellImageSizeY {
             get {
                 return this.onBlock.SizeY;
             }
@@ -26,19 +28,44 @@ namespace DXlib_CS.src.Comp.DrawComp.Object {
 
 
         public Cell(double posX , double posY , ImageObject on , ImageObject off) {
+            this.posX = posX;
+            this.posY = posY;
 
             this.onBlock = on;
-            this.offBLock = off;
+            this.offBlock = off;
+
+            this.Init();
+        }
+
+        public Cell(ImageObject on , ImageObject off) {
+            this.onBlock = on;
+            this.offBlock = off;
+
+            this.Init();
         }
 
         public override void Init() {
+            isBlock = true;
         }
 
 
         public override void UpData() {
+
+            onBlock.PosX = this.posX;
+            onBlock.PosY = this.posY;
+            offBlock.PosX = this.posX;
+            offBlock.PosY = this.posY;
+
         }
 
         public override void Draw() {
+
+            if(isBlock) {
+                onBlock.Draw();
+            } else {
+                offBlock.Draw();
+            }
+        
         }
 
     }

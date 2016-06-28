@@ -13,6 +13,7 @@ using DXlib_CS.src.Comp.DrawComp.Object;
 namespace DXlib_CS.src.Comp.DrawComp.Pages {
     class PageGame : Page {
 
+        Cell[,] cells;
 
         public PageGame() {
 
@@ -27,12 +28,25 @@ namespace DXlib_CS.src.Comp.DrawComp.Pages {
             base.Init();
             this.LoadResource();
 
+            cells = new Cell[10 , 10];
+            double cellSizeX = new ImageObject(2).SizeX;
+            double cellSizeY = new ImageObject(2).SizeY;
+            for(int y = 0 ; y < 10 ; y++) {
+                for(int x = 0 ; x < 10 ; x++) {
+                    cells[y , x] = new Cell(new ImageObject(1) , new ImageObject(2));
+                    cells[y , x].PosX = 100 + cellSizeX * x + cellSizeX * y / 2;
+                    cells[y , x].PosY = 100 + cellSizeY / 4 * y;
+                }
+            }
 
         }
 
         public override void UpData() {
             base.UpData();
 
+            foreach(var item in cells) {
+                item.UpData();
+            }
 
             //escでめにゅー
             if(keys.Pressed(DX.KEY_INPUT_ESCAPE)) {
@@ -53,6 +67,10 @@ namespace DXlib_CS.src.Comp.DrawComp.Pages {
             DX.DrawString(0 , 60 , "mouseY:" + mouseY , DX.GetColor(255 , 255 , 0));
 #endif
 
+            foreach(var item in cells) {
+                item.Draw();
+            }
+
 
 
         }
@@ -60,6 +78,8 @@ namespace DXlib_CS.src.Comp.DrawComp.Pages {
         public override void LoadResource() {
 
             GrHandleController.DicGrHandle.Add(0 , new[] { DX.LoadGraph(@"./Data/Image/mon_014.png") });
+            GrHandleController.DicGrHandle.Add(1 , new[] { DX.LoadGraph(@"./Data/Image/hoge.png") });
+            GrHandleController.DicGrHandle.Add(2 , new[] { DX.LoadGraph(@"./Data/Image/huga.png") });
 
 
             //grHandleが-1＝画像ファイルがない・画像ファイルの読み込みに失敗したということなので、例外をげろげろ
