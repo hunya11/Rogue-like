@@ -42,7 +42,7 @@
     <Compile Include="src\Comp\DrawComp\DrawableComponent.cs" />
     <Compile Include="src\Comp\Component.cs" />
     <Compile Include="src\Comp\DrawComp\Image\ImageObject.cs" />
-    <Compile Include="src\Comp\DrawComp\Object\GameObject.cs" />
+    <Compile Include="src\Comp\DrawComp\Cell.cs" />
     <Compile Include="src\Comp\DrawComp\Pages\PageGame.cs" />
     <Compile Include="src\Comp\DrawComp\Pages\PageTitle.cs" />
     <Compile Include="src\GrHandleController.cs" />
@@ -58,9 +58,7 @@
     <Reference Include="System" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="src\Comp\DrawComp\Object\Effect\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
