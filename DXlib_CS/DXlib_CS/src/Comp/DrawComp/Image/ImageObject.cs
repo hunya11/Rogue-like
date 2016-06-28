@@ -84,6 +84,9 @@ namespace DXlib_CS.src.Comp.DrawComp.Image {
 
         public override void Init() {
 
+            posX = 0;
+            posY = 0;
+
             alphaBlend = 1.0;
 
         }
