@@ -13,37 +13,31 @@ namespace DXlib_CS.src.Comp.DrawComp.Image {
     class ImageObject : DrawableComponent {
 
 
-        private double posX;
-
-        /// <summary>
-        /// X軸の中心座標
-        /// </summary>
-        public double PosX {
-            get {
-                return posX;
-            }
-            set {
-                posX = value;
-            }
-        }
-
-        private double posY;
-
-        /// <summary>
-        /// Y軸の中心座標
-        /// </summary>
-        public double PosY {
-            get {
-                return posY;
-            }
-            set {
-                posY = value;
-            }
-        }
-
 
         private double sizeX;
+        /// <summary>
+        /// 画像のX方向への大きさ
+        /// </summary>
+        public double SizeX {
+            get {
+                return sizeX;
+            }
+            set {
+                sizeX = value;
+            }
+        }
         private double sizeY;
+        /// <summary>
+        /// 画像のY方向への大きさ
+        /// </summary>
+        public double SizeY {
+            get {
+                return sizeY;
+            }
+            set {
+                sizeY = value;
+            }
+        }
 
         /// <summary>
         /// グラフィックハンドル
