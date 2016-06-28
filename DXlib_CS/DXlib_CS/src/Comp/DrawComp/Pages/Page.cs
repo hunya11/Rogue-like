@@ -9,6 +9,7 @@ using System.Diagnostics;
 namespace DXlib_CS.src.Comp.DrawComp.Pages {
     abstract class Page : DrawableComponent{
 
+
         protected static Key keys;
 
         protected static int pageState;
@@ -53,6 +54,9 @@ namespace DXlib_CS.src.Comp.DrawComp.Pages {
         public override void Init() {
             DX.InitGraph();
             DX.InitFontToHandle();
+
+            GrHandleController.DicGrHandle.Clear();
+
             localTimer.Reset();
             localTimer.Start();
         }

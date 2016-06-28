@@ -83,10 +83,12 @@ namespace DXlib_CS.src.Comp.DrawComp.Pages {
         }
                 
         public override void Draw() {
+
+#if DEBUG
             DX.DrawString(0 , 0 , "たいとる" , DX.GetColor(255 , 255 , 0));
             DX.DrawString(0 , 15 , "globaltimer:" + globalTimer.Elapsed , DX.GetColor(255 , 255 , 0));
             DX.DrawString(0 , 30 , "localtimer:" + localTimer.Elapsed , DX.GetColor(255 , 255 , 0));
-
+#endif
 
 
             //menu関連/////////////////////////////////////////
